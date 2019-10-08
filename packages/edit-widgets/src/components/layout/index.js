@@ -7,6 +7,7 @@ import {
 	Popover,
 	SlotFillProvider,
 } from '@wordpress/components';
+import { useCallback, useState } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -17,6 +18,13 @@ import WidgetAreas from '../widget-areas';
 import Notices from '../notices';
 
 function Layout( { blockEditorSettings } ) {
+	const [ selectedArea, setSelectedArea ] = useState( null );
+	const onFocus = useCallback(
+		() => {
+			setSelectedArea( null );
+		},
+		[ setSelectedArea ]
+	);
 	return (
 		<SlotFillProvider>
 			<Header />
@@ -27,8 +35,11 @@ function Layout( { blockEditorSettings } ) {
 				role="region"
 				aria-label={ __( 'Widgets screen content' ) }
 				tabIndex="-1"
+				onFocus={ onFocus }
 			>
 				<WidgetAreas
+					selectedArea={ selectedArea }
+					setSelectedArea={ setSelectedArea }
 					blockEditorSettings={ blockEditorSettings }
 				/>
 			</div>
