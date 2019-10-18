@@ -121,8 +121,6 @@ export const EXPECTED_TRANSFORMS = {
 	core__cover__gradient: {
 		availableTransforms: [
 			'Group',
-			'Image',
-			'Video',
 		],
 		originalBlock: 'Cover',
 	},
@@ -137,6 +135,13 @@ export const EXPECTED_TRANSFORMS = {
 		availableTransforms: [
 			'Group',
 			'Video',
+		],
+		originalBlock: 'Cover',
+	},
+
+	'core__cover__solid-color': {
+		availableTransforms: [
+			'Group',
 		],
 		originalBlock: 'Cover',
 	},
