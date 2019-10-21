@@ -8,6 +8,7 @@ export const PREFERENCES_DEFAULTS = {
 	},
 	features: {
 		fixedToolbar: false,
+		welcomeGuide: true,
 		showInserterHelpPanel: true,
 	},
 	pinnedPluginItems: {},

@@ -44,6 +44,7 @@ import Sidebar from '../sidebar';
 import PluginPostPublishPanel from '../sidebar/plugin-post-publish-panel';
 import PluginPrePublishPanel from '../sidebar/plugin-pre-publish-panel';
 import FullscreenMode from '../fullscreen-mode';
+import WelcomeGuideModal from '../welcome-guide-modal';
 
 function Layout( {
 	mode,
@@ -92,6 +93,7 @@ function Layout( {
 				<KeyboardShortcutHelpModal />
 				<ManageBlocksModal />
 				<OptionsModal />
+				<WelcomeGuideModal />
 				{ ( mode === 'text' || ! isRichEditingEnabled ) && <TextEditor /> }
 				{ isRichEditingEnabled && mode === 'visual' && <VisualEditor /> }
 				<div className="edit-post-layout__metaboxes">
