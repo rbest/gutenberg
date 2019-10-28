@@ -15,13 +15,12 @@ import {
 	withFallbackStyles,
 } from '@wordpress/components';
 import {
-	withColors,
+	__experimentalUseColors,
 	AlignmentToolbar,
 	BlockControls,
 	ContrastChecker,
 	FontSizePicker,
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
 	withFontSizes,
 } from '@wordpress/block-editor';
@@ -78,52 +77,8 @@ function ParagraphToolbar( { direction, setDirection } ) {
 	) );
 }
 
-function ParagraphPanelColor( {
-	backgroundColor,
-	fallbackBackgroundColor,
-	fallbackTextColor,
-	fontSize,
-	setBackgroundColor,
-	setTextColor,
-	textColor,
-} ) {
-	const colorSettings = useMemo(
-		() => ( [
-			{
-				value: backgroundColor,
-				onChange: setBackgroundColor,
-				label: __( 'Background Color' ),
-			},
-			{
-				value: textColor,
-				onChange: setTextColor,
-				label: __( 'Text Color' ),
-			},
-		] ),
-		[ backgroundColor, textColor, setBackgroundColor, setTextColor ]
-	);
-	return (
-		<PanelColorSettings
-			title={ __( 'Color Settings' ) }
-			initialOpen={ false }
-			colorSettings={ colorSettings }
-		>
-			<ContrastChecker
-				{ ...{
-					textColor,
-					backgroundColor,
-					fallbackTextColor,
-					fallbackBackgroundColor,
-					fontSize,
-				} }
-			/>
-		</PanelColorSettings>
-	);
-}
-
 function ParagraphBlock( {
 	attributes,
-	backgroundColor,
 	className,
 	fallbackBackgroundColor,
 	fallbackFontSize,
@@ -132,10 +87,7 @@ function ParagraphBlock( {
 	mergeBlocks,
 	onReplace,
 	setAttributes,
-	setBackgroundColor,
 	setFontSize,
-	setTextColor,
-	textColor,
 } ) {
 	const {
 		align,
@@ -176,12 +128,33 @@ function ParagraphBlock( {
 
 	const richTextStyles = useMemo(
 		() => ( {
-			backgroundColor: backgroundColor.color,
-			color: textColor.color,
 			fontSize: fontSize.size ? fontSize.size + 'px' : undefined,
 			direction,
 		} ),
-		[ backgroundColor.color, textColor.color, fontSize.size, direction ]
+		[ fontSize.size, direction ]
+	);
+
+	const { TextColor, BackgroundColor, InspectorControlsColorPanel } = __experimentalUseColors(
+		[
+			{ name: 'textColor', property: 'color' },
+			{ name: 'backgroundColor', className: 'has-background' },
+		],
+		{
+			panelChildren: ( components ) => {
+				return (
+					<ContrastChecker
+						{ ...{
+							fallbackTextColor,
+							fallbackBackgroundColor,
+							fontSize,
+						} }
+						textColor={ components.TextColor.color }
+						backgroundColor={ components.BackgroundColor.color }
+					/>
+				);
+			},
+		},
+		[ fallbackTextColor, fallbackBackgroundColor, fontSize ],
 	);
 
 	return (
@@ -213,45 +186,36 @@ function ParagraphBlock( {
 						}
 					/>
 				</PanelBody>
-				<ParagraphPanelColor
-					backgroundColor={ backgroundColor.color }
-					fallbackBackgroundColor={ fallbackBackgroundColor }
-					fallbackTextColor={ fallbackTextColor }
-					fontSize={ fontSize.size }
-					setBackgroundColor={ setBackgroundColor }
-					setTextColor={ setTextColor }
-					textColor={ textColor.color }
-				/>
 			</InspectorControls>
-			<RichText
-				identifier="content"
-				tagName="p"
-				className={ classnames( 'wp-block-paragraph', className, {
-					'has-text-color': textColor.color,
-					'has-background': backgroundColor.color,
-					'has-drop-cap': dropCap,
-					[ `has-text-align-${ align }` ]: align,
-					[ backgroundColor.class ]: backgroundColor.class,
-					[ textColor.class ]: textColor.class,
-					[ fontSize.class ]: fontSize.class,
-				} ) }
-				style={ richTextStyles }
-				value={ content }
-				onChange={ setContent }
-				onSplit={ onSplit }
-				onMerge={ mergeBlocks }
-				onReplace={ onReplace }
-				onRemove={ onRemove }
-				aria-label={ content ? __( 'Paragraph block' ) : __( 'Empty block; start writing or type forward slash to choose a block' ) }
-				placeholder={ placeholder || __( 'Start writing or type / to choose a block' ) }
-				__unstableEmbedURLOnPaste
-			/>
+			{ InspectorControlsColorPanel }
+			<BackgroundColor>
+				<TextColor>
+					<RichText
+						identifier="content"
+						tagName="p"
+						className={ classnames( 'wp-block-paragraph', className, {
+							'has-drop-cap': dropCap,
+							[ `has-text-align-${ align }` ]: align,
+							[ fontSize.class ]: fontSize.class,
+						} ) }
+						style={ richTextStyles }
+						value={ content }
+						onChange={ setContent }
+						onSplit={ onSplit }
+						onMerge={ mergeBlocks }
+						onReplace={ onReplace }
+						onRemove={ onRemove }
+						aria-label={ content ? __( 'Paragraph block' ) : __( 'Empty block; start writing or type forward slash to choose a block' ) }
+						placeholder={ placeholder || __( 'Start writing or type / to choose a block' ) }
+						__unstableEmbedURLOnPaste
+					/>
+				</TextColor>
+			</BackgroundColor>
 		</>
 	);
 }
 
 const ParagraphEdit = compose( [
-	withColors( 'backgroundColor', { textColor: 'color' } ),
 	withFontSizes( 'fontSize' ),
 	applyFallbackStyles,
 ] )( ParagraphBlock );
