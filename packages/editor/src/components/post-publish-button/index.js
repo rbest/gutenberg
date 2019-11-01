@@ -147,7 +147,8 @@ export class PostPublishButton extends Component {
 		const buttonChildren = <PublishButtonLabel forceIsSaving={ forceIsSaving } />;
 
 		const componentProps = isToggle ? toggleProps : buttonProps;
-		const componentChildren = isToggle ? toggleChildren : buttonChildren;
+		const componentChildren =
+			isToggle || hasNonPostEntityChanges ? toggleChildren : buttonChildren;
 		return (
 			<div>
 				<EntitiesSavedStates
