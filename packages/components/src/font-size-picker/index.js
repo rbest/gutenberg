@@ -12,18 +12,22 @@ import Button from '../button';
 import RangeControl from '../range-control';
 import SelectControl from '../select-control';
 
+const DEFAULT_FONT_SIZE = 'default';
+const CUSTOM_FONT_SIZE = 'custom';
+
 function getSelectValueFromFontSize( fontSizes, value ) {
 	if ( value ) {
 		const fontSizeValue = fontSizes.find( ( font ) => font.size === value );
-		return fontSizeValue ? fontSizeValue.slug : 'custom';
+		return fontSizeValue ? fontSizeValue.slug : CUSTOM_FONT_SIZE;
 	}
-	return 'normal';
+	return DEFAULT_FONT_SIZE;
 }
 
 function getSelectOptions( optionsArray ) {
 	return [
+		{ value: DEFAULT_FONT_SIZE, label: __( 'Default' ) },
 		...optionsArray.map( ( option ) => ( { value: option.slug, label: option.name } ) ),
-		{ value: 'custom', label: __( 'Custom' ) },
+		{ value: CUSTOM_FONT_SIZE, label: __( 'Custom' ) },
 	];
 }
 
@@ -43,20 +47,27 @@ function FontSizePicker( {
 
 	const onChangeValue = ( event ) => {
 		const newValue = event.target.value;
-		setCurrentSelectValue( getSelectValueFromFontSize( fontSizes, Number( newValue ) ) );
 		if ( newValue === '' ) {
-			onChange( undefined );
+			setDefault();
 			return;
 		}
+		setCurrentSelectValue( getSelectValueFromFontSize( fontSizes, Number( newValue ) ) );
 		onChange( Number( newValue ) );
 	};
 
 	const onSelectChangeValue = ( eventValue ) => {
-		setCurrentSelectValue( eventValue );
-		const selectedFont = fontSizes.find( ( font ) => font.slug === eventValue );
-		if ( selectedFont ) {
-			onChange( selectedFont.size );
+		if ( eventValue === DEFAULT_FONT_SIZE ) {
+			setDefault();
+			return;
 		}
+		const selectedFont = fontSizes.find( ( font ) => font.slug === eventValue );
+		setCurrentSelectValue( eventValue );
+		onChange( selectedFont.size );
+	};
+
+	const setDefault = () => {
+		onChange( undefined );
+		setCurrentSelectValue( getSelectValueFromFontSize( fontSizes, undefined ) );
 	};
 
 	return (
@@ -88,10 +99,7 @@ function FontSizePicker( {
 					className="components-color-palette__clear"
 					type="button"
 					disabled={ value === undefined }
-					onClick={ () => {
-						onChange( undefined );
-						setCurrentSelectValue( getSelectValueFromFontSize( fontSizes, undefined ) );
-					} }
+					onClick={ setDefault }
 					isSmall
 					isDefault
 				>
