@@ -4,6 +4,7 @@
  */
 import gradientParser from 'gradient-parser';
 import { some } from 'lodash';
+import classnames from 'classnames';
 
 /**
  * WordPress dependencies
@@ -91,12 +92,18 @@ function InsertPoint( {
 	);
 }
 
-export default function CustomGradientPicker( { value = DEFAULT_GRADIENT, onChange } ) {
+export default function CustomGradientPicker( { value, onChange } ) {
+	let hasGradient = true;
+	if ( ! value ) {
+		hasGradient = false;
+		value = DEFAULT_GRADIENT;
+	}
 	const parsedGradient = useMemo(
 		() => {
 			try {
 				return gradientParser.parse( value )[ 0 ];
 			} catch ( error ) {
+				hasGradient = false;
 				return gradientParser.parse( DEFAULT_GRADIENT )[ 0 ];
 			}
 		},
@@ -159,7 +166,10 @@ export default function CustomGradientPicker( { value = DEFAULT_GRADIENT, onChan
 	return (
 		<div
 			ref={ gradientPickerDomRef }
-			className="components-custom-gradient-picker"
+			className={ classnames(
+				'components-custom-gradient-picker',
+				{ 'has-gradient': hasGradient }
+			) }
 			onMouseEnter={ updateInsertPointPosition }
 			onMouseMove={ updateInsertPointPosition }
 			style={ {

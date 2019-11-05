@@ -446,6 +446,7 @@ class CoverEdit extends Component {
 								clearable={ false }
 							/>
 							<__experimentalGradientPicker
+								disableCustomGradients
 								onChange={
 									( newGradient ) => {
 										setAttributes( {
