@@ -49,7 +49,6 @@ const MediaReplaceFlow = (
 	const [ mediaURLValue, setMediaURLValue ] = useState( mediaURL );
 	const [ showMediaReplaceOptions, setShowMediaReplaceOptions ] = useState( false );
 	const editMediaButtonRef = createRef();
-	const uploadButtonRef = createRef();
 
 	const stopPropagation = ( event ) => {
 		event.stopPropagation();
@@ -65,6 +64,7 @@ const MediaReplaceFlow = (
 	const selectMedia = ( media ) => {
 		onSelect( media );
 		setMediaURLValue( media.url );
+		setShowMediaReplaceOptions( false );
 		speak( __( 'The media file has been replaced' ) );
 	};
 
@@ -97,14 +97,12 @@ const MediaReplaceFlow = (
 			onChange={ uploadFiles }
 			accept={ allowedTypes }
 			multiple={ multiple }
-			ref={ uploadButtonRef }
 			render={ ( { openFileDialog } ) => {
 				return (
 					<MenuItem
 						icon="upload"
 						onClick={ () => {
 							openFileDialog();
-							uploadButtonRef.current.focus();
 						} }
 					>
 						{ __( 'Upload' ) }
@@ -220,7 +218,7 @@ const applyWithSelect = withSelect( ( select ) => {
 	const { getSettings } = select( 'core/block-editor' );
 
 	return {
-		mediaUpload: getSettings().__experimentalMediaUpload,
+		mediaUpload: getSettings().mediaUpload,
 	};
 } );
 
