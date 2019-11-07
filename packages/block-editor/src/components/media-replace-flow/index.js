@@ -27,7 +27,6 @@ import { compose } from '@wordpress/compose';
 /**
  * Internal dependencies
  */
-import BlockControls from '../block-controls';
 import MediaUpload from '../media-upload';
 import MediaUploadCheck from '../media-upload/check';
 import LinkEditor from '../url-popover/link-editor';
@@ -165,51 +164,49 @@ const MediaReplaceFlow = (
 	};
 
 	const editMediaButton = (
-		<BlockControls>
-			<MediaUploadCheck>
-				<MediaUpload
-					onSelect={ ( media ) => selectMedia( media ) }
-					onClose={ () => setShowMediaReplaceOptions( true ) }
-					allowedTypes={ allowedTypes }
-					render={ ( { open } ) => (
-						<>
-							<Toolbar className={ 'components-dropdown-menu components-toolbar' }>
-								<Button
-									ref={ editMediaButtonRef }
-									className={ 'components-button components-icon-button components-dropdown-menu__toggle' }
-									onClick={ () => {
-										setShowMediaReplaceOptions( ! showMediaReplaceOptions );
-									} }
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={ ( media ) => selectMedia( media ) }
+				onClose={ () => setShowMediaReplaceOptions( true ) }
+				allowedTypes={ allowedTypes }
+				render={ ( { open } ) => (
+					<>
+						<Toolbar className={ 'components-dropdown-menu components-toolbar' }>
+							<Button
+								ref={ editMediaButtonRef }
+								className={ 'components-button components-icon-button components-dropdown-menu__toggle' }
+								onClick={ () => {
+									setShowMediaReplaceOptions( ! showMediaReplaceOptions );
+								} }
+							>
+								<span className="components-dropdown-menu__label" > { name } </span>
+								<span className="components-dropdown-menu__indicator" />
+							</Button>
+							{ showMediaReplaceOptions &&
+								<Popover
+									onClickOutside={ onClickOutside() }
+									onClose={ onClose }
 								>
-									<span className="components-dropdown-menu__label" > { name } </span>
-									<span className="components-dropdown-menu__indicator" />
-								</Button>
-								{ showMediaReplaceOptions &&
-									<Popover
-										onClickOutside={ onClickOutside() }
-										onClose={ onClose }
-									>
-										<>
-											<NavigableMenu>
-												<MenuItem
-													icon="admin-media"
-													onClick={ open }
-												>
-													{ __( 'Open Media Library' ) }
-												</MenuItem>
-												{ fileUploadButton }
-												{ URLButton }
-											</NavigableMenu>
-											{ urlInputUI }
-										</>
-									</Popover>
-								}
-							</Toolbar>
-						</>
-					) }
-				/>
-			</MediaUploadCheck>
-		</BlockControls>
+									<>
+										<NavigableMenu>
+											<MenuItem
+												icon="admin-media"
+												onClick={ open }
+											>
+												{ __( 'Open Media Library' ) }
+											</MenuItem>
+											{ fileUploadButton }
+											{ URLButton }
+										</NavigableMenu>
+										{ urlInputUI }
+									</>
+								</Popover>
+							}
+						</Toolbar>
+					</>
+				) }
+			/>
+		</MediaUploadCheck>
 	);
 
 	return (
