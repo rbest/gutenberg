@@ -50,6 +50,9 @@
 			padding: $grid-size;
 			outline: none;
 			background: none;
+			position: absolute;
+			right: 0;
+			width: $block-side-ui-width;
 		}
 	}
 }
