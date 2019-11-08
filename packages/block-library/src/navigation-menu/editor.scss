@@ -47,11 +47,11 @@
 		margin: 0;
 
 		.block-editor-button-block-appender {
-			padding: $grid-size;
 			outline: none;
 			background: none;
 			position: absolute;
 			right: 0;
+			top: -$grid-size-large - $block-side-ui-clearance;
 			width: $block-side-ui-width;
 		}
 	}
