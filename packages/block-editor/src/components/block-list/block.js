@@ -595,7 +595,11 @@ function BlockListBlock( {
 				</IgnoreNestedEvents>
 			</div>
 			{ showInserterShortcuts && (
-				<div className="editor-block-list__side-inserter block-editor-block-list__side-inserter">
+				<div
+					className="editor-block-list__side-inserter block-editor-block-list__side-inserter"
+					onFocus={ ( event ) => ( event.stopPropagation() ) }
+					tabIndex={ -1 }
+				>
 					<InserterWithShortcuts
 						clientId={ clientId }
 						rootClientId={ rootClientId }
@@ -604,7 +608,11 @@ function BlockListBlock( {
 				</div>
 			) }
 			{ showEmptyBlockSideInserter && (
-				<div className="editor-block-list__empty-block-inserter block-editor-block-list__empty-block-inserter">
+				<div
+					className="editor-block-list__empty-block-inserter block-editor-block-list__empty-block-inserter"
+					onFocus={ ( event ) => ( event.stopPropagation() ) }
+					tabIndex={ -1 }
+				>
 					<Inserter
 						position="top right"
 						onToggle={ selectOnOpen }
