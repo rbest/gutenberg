@@ -28,6 +28,10 @@
 .components-color-picker {
 	width: 100%;
 	overflow: hidden;
+
+	* {
+		box-sizing: border-box;
+	}
 }
 .components-color-picker__saturation {
 	width: 100%;
