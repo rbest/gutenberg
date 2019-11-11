@@ -212,10 +212,15 @@
 		padding: 2px;
 	}
 }
+
+.components-color-picker__inputs-field {
+	width: 100%;
+}
 .components-color-picker__inputs-fields {
 	display: flex;
 	/*rtl:ignore*/
 	direction: ltr;
+	flex-grow: 1;
 
 	.components-base-control__field {
 		margin: 0 4px;
