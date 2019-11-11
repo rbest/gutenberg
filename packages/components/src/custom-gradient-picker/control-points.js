@@ -160,31 +160,24 @@ export function ControlPoints( {
 					controlPointMoveState.current.significantMoveHappened = true;
 				}
 			}
-			onChange(
-				getGradientWithPositionAtIndexChanged( referenceParsedGradient, position, relativePosition )
-			);
+
+			if ( ! isControlPointOverlapping( parsedGradient, relativePosition, position ) ) {
+				onChange(
+					getGradientWithPositionAtIndexChanged( referenceParsedGradient, position, relativePosition )
+				);
+			}
 		},
 		[ controlPointMoveState, onChange, gradientPickerDomRef ]
 	);
 
 	const onMouseUp = useCallback(
-		( event ) => {
-			const { parsedGradient: referenceParsedGradient, position } = controlPointMoveState.current;
-			const colorStopRelativePosition = getHorizontalRelativeGradientPosition(
-				event.clientX,
-				gradientPickerDomRef.current,
-				GRADIENT_MARKERS_WIDTH,
-			);
-			// Reset the move if the control point gets very close to another existing control point.
-			if ( isControlPointOverlapping( parsedGradient, colorStopRelativePosition, position ) ) {
-				onChange( referenceParsedGradient );
-			}
+		() => {
 			if ( window && window.removeEventListener ) {
 				window.removeEventListener( 'mousemove', controlPointMove );
 				window.removeEventListener( 'mouseup', onMouseUp );
 			}
 		},
-		[ controlPointMove, onChange, controlPointMoveState ]
+		[ controlPointMove ]
 	);
 
 	const controlPointMouseDown = useMemo(

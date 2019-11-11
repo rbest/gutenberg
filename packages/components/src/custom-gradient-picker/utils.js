@@ -60,16 +60,21 @@ export function getGradientWithPositionAtIndexChanged( parsedGradient, index, re
 	};
 }
 
-export function isControlPointOverlapping( parsedGradient, position, excludeIndex ) {
-	if ( some(
+export function isControlPointOverlapping( parsedGradient, position, initialIndex ) {
+	const initialPosition = parseInt( parsedGradient.colorStops[ initialIndex ].length.value );
+	const minPosition = Math.min( initialPosition, position );
+	const maxPosition = Math.max( initialPosition, position );
+
+	return some(
 		parsedGradient.colorStops,
 		( { length }, index ) => {
-			return index !== excludeIndex && Math.abs( length.value - position ) < MINIMUM_DISTANCE_BETWEEN_POINTS;
+			const itemPosition = parseInt( length.value );
+			return index !== initialIndex && (
+				Math.abs( itemPosition - position ) < MINIMUM_DISTANCE_BETWEEN_POINTS ||
+				( minPosition < itemPosition && itemPosition < maxPosition )
+			);
 		}
-	) ) {
-		return true;
-	}
-	return false;
+	);
 }
 
 function getGradientWithPositionAtIndexSummed( parsedGradient, index, valueToSum ) {
