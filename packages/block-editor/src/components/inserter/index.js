@@ -78,7 +78,14 @@ class Inserter extends Component {
 			renderToggle = defaultRenderToggle,
 		} = this.props;
 
-		return renderToggle( { onToggle, isOpen, disabled, blockTitle, hasSingleBlockType } );
+		return (
+			<div
+				onFocus={ ( event ) => ( event.stopPropagation() ) }
+				tabIndex={ -1 }
+			>
+				{ renderToggle( { onToggle, isOpen, disabled, blockTitle, hasSingleBlockType } ) }
+			</div>
+		);
 	}
 
 	/**

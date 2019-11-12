@@ -17,10 +17,7 @@ import Inserter from '../inserter';
 
 function ButtonBlockAppender( { rootClientId, className, __experimentalSelectBlockOnInsert: selectBlockOnInsert } ) {
 	return (
-		<div
-			onFocus={ ( event ) => ( event.stopPropagation() ) }
-			tabIndex={ -1 }
-		>
+		<>
 			<BlockDropZone rootClientId={ rootClientId } />
 			<Inserter
 				rootClientId={ rootClientId }
@@ -52,7 +49,7 @@ function ButtonBlockAppender( { rootClientId, className, __experimentalSelectBlo
 				} }
 				isAppender
 			/>
-		</div>
+		</>
 	);
 }
 

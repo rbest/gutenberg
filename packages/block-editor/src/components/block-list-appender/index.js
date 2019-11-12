@@ -61,12 +61,10 @@ function BlockListAppender( {
 	// default block can't be inserted.
 	return (
 		<div className="block-list-appender">
-			<IgnoreNestedEvents childHandledEvents={ [ 'onFocus', 'onClick', 'onKeyDown' ] }>
-				<ButtonBlockAppender
-					rootClientId={ rootClientId }
-					className="block-list-appender__toggle"
-				/>
-			</IgnoreNestedEvents>
+			<ButtonBlockAppender
+				rootClientId={ rootClientId }
+				className="block-list-appender__toggle"
+			/>
 		</div>
 	);
 }
