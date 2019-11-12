@@ -1,0 +1,9 @@
+{
+	"name": "core/grid",
+	"category": "layout",
+	"attributes": {
+		"grid": {
+			"type": "object"
+		}
+	}
+}
