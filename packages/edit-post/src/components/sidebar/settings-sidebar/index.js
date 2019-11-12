@@ -40,7 +40,7 @@ function TestSimulateMediaQuery() {
 			onChange={ ( newValue ) => setIsSimulationEnabled( newValue ) }
 		/>
 	);
-	if ( ! isSimulationEnable ) {
+	if ( ! isSimulationEnabled ) {
 		return toggleUI;
 	}
 	return (
