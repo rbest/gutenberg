@@ -81,6 +81,12 @@ class Inserter extends Component {
 		return (
 			<div
 				onFocus={ ( event ) => ( event.stopPropagation() ) }
+				// While ideally it would be enough to capture the
+				// bubbling focus event from the Inserter, due to the
+				// characteristics of click focusing of `button`s in
+				// Firefox and Safari, it is not reliable.
+				//
+				// See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus
 				tabIndex={ -1 }
 			>
 				{ renderToggle( { onToggle, isOpen, disabled, blockTitle, hasSingleBlockType } ) }
