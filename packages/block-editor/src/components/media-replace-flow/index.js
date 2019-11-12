@@ -169,7 +169,7 @@ const MediaReplaceFlow = (
 				allowedTypes={ allowedTypes }
 				render={ ( { open } ) => (
 					<>
-						<Toolbar className={ 'components-dropdown-menu components-toolbar' }>
+						<Toolbar className={ 'mediaflow-replace components-dropdown-menu components-toolbar' }>
 							<Button
 								ref={ editMediaButtonRef }
 								className={ 'components-button components-icon-button components-dropdown-menu__toggle' }
