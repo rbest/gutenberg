@@ -55,7 +55,7 @@ function TestSimulateMediaQuery() {
 				onChange={ ( newValue ) => ( setSimulationWidth( newValue ) ) }
 			/>
 			<__experimentalSimulateMediaQuery
-				value={ simulateValue }
+				value={ simulationWidth }
 				partialPaths={ PARTIAL_PATHS }
 			/>
 		</>
