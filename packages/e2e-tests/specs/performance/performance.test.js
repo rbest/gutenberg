@@ -54,6 +54,7 @@ describe( 'Performance', () => {
 		while ( i-- ) {
 			startTime = new Date();
 			await page.reload( { waitUntil: [ 'domcontentloaded', 'load' ] } );
+			await page.emulateMediaFeatures( [ { name: 'prefers-reduced-motion', value: 'reduce' } ] );
 			await disableNavigationMode();
 		}
 

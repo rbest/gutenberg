@@ -7,7 +7,6 @@ import { get } from 'lodash';
  * WordPress dependencies
  */
 import {
-	activatePlugin,
 	clearLocalStorage,
 	enablePageDialogAccept,
 	isOfflineMode,
@@ -213,7 +212,6 @@ beforeAll( async () => {
 
 	await trashExistingPosts();
 	await setupBrowser();
-	await activatePlugin( 'gutenberg-test-plugin-disables-the-css-animations' );
 } );
 
 afterEach( async () => {
