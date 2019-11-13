@@ -367,6 +367,277 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Components|Card Default 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__header is-size-medium css-6qsnk-HeaderUI e1q7k77g1"
+  >
+    Header
+  </div>
+  <div
+    className="components-card__body is-size-medium css-1yyn1r2-BodyUI e1q7k77g3"
+  >
+    Code is Poetry
+  </div>
+  <div
+    className="components-card__footer is-size-medium css-wy9sfy-FooterUI e1q7k77g4"
+  >
+    Footer
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card/Body Default 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__body is-size-medium css-1yyn1r2-BodyUI e1q7k77g3"
+  >
+    Content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card/Divider Default 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__body is-size-medium css-1yyn1r2-BodyUI e1q7k77g3"
+  >
+    ...
+  </div>
+  <hr
+    className="components-card__divider css-lh2anh-DividerUI e1q7k77g5"
+    role="separator"
+  />
+  <div
+    className="components-card__body is-size-medium css-1yyn1r2-BodyUI e1q7k77g3"
+  >
+    ...
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card/Footer Default 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__footer is-size-medium css-wy9sfy-FooterUI e1q7k77g4"
+  >
+    Content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card/Header Default 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__header is-size-medium css-6qsnk-HeaderUI e1q7k77g1"
+  >
+    Content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card/Media Default 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__media css-eunfqt-MediaUI e1q7k77g2"
+  >
+    <img
+      alt="SMELLING MARSHMELLOW ICECREAM CONE"
+      src="https://images.unsplash.com/photo-1570776765652-4ce2a88cc1f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+    />
+  </div>
+  <div
+    className="components-card__body is-size-medium css-1yyn1r2-BodyUI e1q7k77g3"
+  >
+    Content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card/Media Header And Footer 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__header is-size-medium css-6qsnk-HeaderUI e1q7k77g1"
+  >
+    Header Content
+  </div>
+  <div
+    className="components-card__media css-eunfqt-MediaUI e1q7k77g2"
+  >
+    <img
+      alt="SMELLING MARSHMELLOW ICECREAM CONE"
+      src="https://images.unsplash.com/photo-1570776765652-4ce2a88cc1f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+    />
+  </div>
+  <div
+    className="components-card__footer is-shady is-size-medium css-wy9sfy-FooterUI e1q7k77g4"
+  >
+    Caption
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card/Media Horizontally Aligned 1`] = `
+Array [
+  <p>
+    Note: This story demonstrates how this UI may be created. It requires extra styling.
+  </p>,
+  <div
+    className="components-card is-size-medium is-left e1gk3lep2 css-5mtgus-CardUI-HorizontallyAlignedCard e1q7k77g0"
+  >
+    <div
+      className="components-card__media is-left e1gk3lep0 css-7tds6a-MediaUI-StyledCardMedia e1q7k77g2"
+      style={
+        Object {
+          "maxWidth": 200,
+        }
+      }
+    >
+      <img
+        alt="SMELLING MARSHMELLOW ICECREAM CONE"
+        src="https://images.unsplash.com/photo-1570776765652-4ce2a88cc1f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </div>
+    <div
+      className="components-card__body is-size-medium e1gk3lep1 css-1drywz3-BodyUI-StyledCardBody e1q7k77g3"
+    >
+      Content
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots Components|Card/Media Iframe Embed 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__header is-size-medium css-6qsnk-HeaderUI e1q7k77g1"
+  >
+    Header Content
+  </div>
+  <div
+    className="components-card__media css-eunfqt-MediaUI e1q7k77g2"
+  >
+    <iframe
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen={true}
+      frameBorder="0"
+      height="315"
+      src="https://www.youtube.com/embed/zGP6zk7jcrQ"
+      title="Corgi"
+      width="560"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card/Media On Bottom 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__body is-size-medium css-1yyn1r2-BodyUI e1q7k77g3"
+  >
+    Content
+  </div>
+  <div
+    className="components-card__media css-eunfqt-MediaUI e1q7k77g2"
+  >
+    <img
+      alt="SMELLING MARSHMELLOW ICECREAM CONE"
+      src="https://images.unsplash.com/photo-1570776765652-4ce2a88cc1f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card/Media On Top 1`] = `
+<div
+  className="components-card is-size-medium css-l3gor6-CardUI e1q7k77g0"
+  style={
+    Object {
+      "width": "360px",
+    }
+  }
+>
+  <div
+    className="components-card__media css-eunfqt-MediaUI e1q7k77g2"
+  >
+    <img
+      alt="SMELLING MARSHMELLOW ICECREAM CONE"
+      src="https://images.unsplash.com/photo-1570776765652-4ce2a88cc1f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+    />
+  </div>
+  <div
+    className="components-card__body is-size-medium css-1yyn1r2-BodyUI e1q7k77g3"
+  >
+    <div>
+      Content
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Components|CheckboxControl All 1`] = `
 <div
   className="components-base-control"
@@ -2023,6 +2294,157 @@ exports[`Storyshots Components|Modal Default 1`] = `
 </button>
 `;
 
+exports[`Storyshots Components|RadioControl Default 1`] = `
+<div
+  className="components-base-control components-radio-control"
+>
+  <div
+    className="components-base-control__field"
+  >
+    <label
+      className="components-base-control__label"
+      htmlFor="inspector-radio-control-0"
+    >
+      Post visibility
+    </label>
+    <div
+      className="components-radio-control__option"
+    >
+      <input
+        checked={true}
+        className="components-radio-control__input"
+        id="inspector-radio-control-0-0"
+        name="inspector-radio-control-0"
+        onChange={[Function]}
+        type="radio"
+        value="public"
+      />
+      <label
+        htmlFor="inspector-radio-control-0-0"
+      >
+        Public
+      </label>
+    </div>
+    <div
+      className="components-radio-control__option"
+    >
+      <input
+        checked={false}
+        className="components-radio-control__input"
+        id="inspector-radio-control-0-1"
+        name="inspector-radio-control-0"
+        onChange={[Function]}
+        type="radio"
+        value="private"
+      />
+      <label
+        htmlFor="inspector-radio-control-0-1"
+      >
+        Private
+      </label>
+    </div>
+    <div
+      className="components-radio-control__option"
+    >
+      <input
+        checked={false}
+        className="components-radio-control__input"
+        id="inspector-radio-control-0-2"
+        name="inspector-radio-control-0"
+        onChange={[Function]}
+        type="radio"
+        value="password"
+      />
+      <label
+        htmlFor="inspector-radio-control-0-2"
+      >
+        Password Protected
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|RadioControl With Help 1`] = `
+<div
+  className="components-base-control components-radio-control"
+>
+  <div
+    className="components-base-control__field"
+  >
+    <label
+      className="components-base-control__label"
+      htmlFor="inspector-radio-control-1"
+    >
+      Post visibility
+    </label>
+    <div
+      className="components-radio-control__option"
+    >
+      <input
+        aria-describedby="inspector-radio-control-1__help"
+        checked={true}
+        className="components-radio-control__input"
+        id="inspector-radio-control-1-0"
+        name="inspector-radio-control-1"
+        onChange={[Function]}
+        type="radio"
+        value="public"
+      />
+      <label
+        htmlFor="inspector-radio-control-1-0"
+      >
+        Public
+      </label>
+    </div>
+    <div
+      className="components-radio-control__option"
+    >
+      <input
+        aria-describedby="inspector-radio-control-1__help"
+        checked={false}
+        className="components-radio-control__input"
+        id="inspector-radio-control-1-1"
+        name="inspector-radio-control-1"
+        onChange={[Function]}
+        type="radio"
+        value="private"
+      />
+      <label
+        htmlFor="inspector-radio-control-1-1"
+      >
+        Private
+      </label>
+    </div>
+    <div
+      className="components-radio-control__option"
+    >
+      <input
+        aria-describedby="inspector-radio-control-1__help"
+        checked={false}
+        className="components-radio-control__input"
+        id="inspector-radio-control-1-2"
+        name="inspector-radio-control-1"
+        onChange={[Function]}
+        type="radio"
+        value="password"
+      />
+      <label
+        htmlFor="inspector-radio-control-1-2"
+      >
+        Password Protected
+      </label>
+    </div>
+  </div>
+  <p
+    className="components-base-control__help"
+    id="inspector-radio-control-1__help"
+  >
+    The visibility level for the current post
+  </p>
+</div>
+`;
+
 exports[`Storyshots Components|RangeControl Default 1`] = `
 <div
   className="components-base-control components-range-control"
@@ -2453,6 +2875,55 @@ exports[`Storyshots Components|Spinner Default 1`] = `
 <span
   className="components-spinner"
 />
+`;
+
+exports[`Storyshots Components|TabPanel Default 1`] = `
+<div
+  className="my-tab-panel"
+>
+  <div
+    aria-orientation="horizontal"
+    className="components-tab-panel__tabs"
+    role="tablist"
+  >
+    <button
+      aria-controls="0-tab1-view"
+      aria-selected={true}
+      className="components-button tab-one active-tab"
+      id="0-tab1"
+      onClick={[Function]}
+      role="tab"
+      tabIndex={null}
+      type="button"
+    >
+      Tab 1
+    </button>
+    <button
+      aria-controls="0-tab2-view"
+      aria-selected={false}
+      className="components-button tab-two"
+      id="0-tab2"
+      onClick={[Function]}
+      role="tab"
+      tabIndex={-1}
+      type="button"
+    >
+      Tab 2
+    </button>
+  </div>
+  <div
+    aria-labelledby="0-tab1"
+    className="components-tab-panel__tab-content"
+    id="0-tab1-view"
+    role="tabpanel"
+    tabIndex="0"
+  >
+    <p>
+      Selected tab: 
+      Tab 1
+    </p>
+  </div>
+</div>
 `;
 
 exports[`Storyshots Components|ToggleControl Default 1`] = `
