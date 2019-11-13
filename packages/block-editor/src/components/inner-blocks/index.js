@@ -119,6 +119,7 @@ class InnerBlocks extends Component {
 
 		const classes = classnames( 'editor-inner-blocks block-editor-inner-blocks', {
 			'has-overlay': isSmallScreen && ( hasOverlay && ! isPlaceholder ), // Temporary click-through disable on desktop.
+			'is-consuming-toolbars': consumeChildToolbar,
 		} );
 
 		return (
