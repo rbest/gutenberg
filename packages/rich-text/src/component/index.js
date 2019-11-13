@@ -1008,6 +1008,7 @@ class RichText extends Component {
 			className,
 			placeholder,
 			forwardedRef,
+			__unstableContentEditable,
 		} = this.props;
 		const ariaProps = pickBy( this.props, ( value, key ) =>
 			startsWith( key, 'aria-' ) );
@@ -1041,7 +1042,7 @@ class RichText extends Component {
 				onKeyUp={ this.onSelectionChange }
 				onMouseUp={ this.onSelectionChange }
 				onTouchEnd={ this.onSelectionChange }
-				contentEditable
+				contentEditable={ __unstableContentEditable }
 				suppressContentEditableWarning
 			/>
 		);
