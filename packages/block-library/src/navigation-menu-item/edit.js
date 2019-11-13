@@ -246,6 +246,7 @@ function NavigationMenuItemEdit( {
 				<InnerBlocks
 					allowedBlocks={ [ 'core/navigation-menu-item' ] }
 					renderAppender={ hasDescendants ? InnerBlocks.ButtonBlockAppender : false }
+					__experimentalConsumeChildToolbar={ true }
 				/>
 			</div>
 		</Fragment>
