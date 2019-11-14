@@ -6,7 +6,11 @@ import { some } from 'lodash';
 /**
  * WordPress dependencies
  */
-import { PanelBody, ColorIndicator } from '@wordpress/components';
+import {
+	PanelBody,
+	ColorIndicator,
+	ToggleControl,
+} from '@wordpress/components';
 import { ifCondition } from '@wordpress/compose';
 import { sprintf, __ } from '@wordpress/i18n';
 
@@ -17,7 +21,10 @@ import ColorPaletteControl from '../color-palette/control';
 import withColorContext from '../color-palette/with-color-context';
 import { getColorObjectByColorValue } from '../colors';
 
-const hasCustomColorsDisabledForSetting = ( disableCustomColors, colorSetting ) => {
+const hasCustomColorsDisabledForSetting = (
+	disableCustomColors,
+	colorSetting
+) => {
 	if ( colorSetting.disableCustomColors !== undefined ) {
 		return colorSetting.disableCustomColors;
 	}
@@ -27,7 +34,8 @@ const hasCustomColorsDisabledForSetting = ( disableCustomColors, colorSetting ) 
 const hasColorsToChooseInSetting = (
 	colors = [],
 	disableCustomColors,
-	colorSetting ) => {
+	colorSetting
+) => {
 	if ( ! hasCustomColorsDisabledForSetting( disableCustomColors, colorSetting ) ) {
 		return true;
 	}
@@ -81,11 +89,13 @@ const renderColorIndicators = ( colorSettings, colors ) => {
 // an array of components/nodes here wouldn't be feasible.
 export const PanelColorSettings = ifCondition( hasColorsToChoose )(
 	( {
+		applyGlobally,
 		children,
 		colors,
 		colorSettings,
 		disableCustomColors,
 		title,
+		onToggleApplyGlobally,
 		...props
 	} ) => {
 		const titleElement = (
@@ -113,6 +123,11 @@ export const PanelColorSettings = ifCondition( hasColorsToChoose )(
 				) ) }
 
 				{ children }
+				<ToggleControl
+					label="Apply to All"
+					onChange={ onToggleApplyGlobally }
+					checked={ applyGlobally }
+				/>
 			</PanelBody>
 		);
 	}

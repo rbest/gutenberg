@@ -1,22 +1,19 @@
 /**
- * WordPress dependencies
+ * Internal dependencies
  */
-// import { PluginSidebar } from '@wordpress/edit-post';
-// import { registerPlugin } from '@wordpress/plugins';
-// import '@wordpress/element';
+import { varsys } from './varsys';
 
-window.hello = 'omg';
+const defaultThemeConfig = {
+	button: {
+		backgroundColor: '#32373c',
+		textColor: 'white',
+	},
+};
 
-// registerPlugin( 'my-plugin-sidebar', {
-// 	render() {
-// 		return (
-// 			<PluginSidebar
-// 				name="my-plugin-sidebar"
-// 				icon="admin-post"
-// 				title="Hello"
-// 			>
-// 				Meta Fields
-// 			</PluginSidebar>
-// 		);
-// 	},
-// } );
+varsys.apply( defaultThemeConfig );
+
+window.bravas = {
+	varsys,
+};
+
+export * from './varsys';

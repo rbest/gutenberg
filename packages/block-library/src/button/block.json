@@ -54,6 +54,9 @@
 		},
 		"customGradient": {
 			"type": "string"
+		},
+		"applyGlobally": {
+			"type": "boolean"
 		}
 	}
 }

@@ -1,7 +1,9 @@
 $blocks-button__height: 56px;
 
 .wp-block-button {
-	color: $white;
+	// background: var(--brava-button-backgroundColor);
+	color: var(--brava-button-textColor);
+	// color: $white;
 
 	&.aligncenter {
 		text-align: center;
@@ -27,6 +29,9 @@ $blocks-button__height: 56px;
 	text-align: center;
 	text-decoration: none;
 	overflow-wrap: break-word;
+
+	// background: var(--brava-button-backgroundColor);
+	// color: var(--brava-button-textColor);
 
 	&:hover,
 	&:focus,
