@@ -69,11 +69,7 @@ function ColumnEdit( {
 			</InspectorControls>
 			<InnerBlocks
 				templateLock={ false }
-				renderAppender={ (
-					hasChildBlocks ?
-						undefined :
-						() => <InnerBlocks.ButtonBlockAppender />
-				) }
+				renderAppender={ ! hasChildBlocks && InnerBlocks.ButtonBlockAppender }
 			/>
 		</div>
 	);
