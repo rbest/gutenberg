@@ -22,6 +22,7 @@
 		"@wordpress/annotations": "file:packages/annotations",
 		"@wordpress/api-fetch": "file:packages/api-fetch",
 		"@wordpress/autop": "file:packages/autop",
+		"@wordpress/bravas": "file:packages/bravas",
 		"@wordpress/blob": "file:packages/blob",
 		"@wordpress/block-directory": "file:packages/block-directory",
 		"@wordpress/block-editor": "file:packages/block-editor",
