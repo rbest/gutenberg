@@ -24,7 +24,7 @@ const defaultRenderToggle = ( { onToggle, disabled, isOpen, blockTitle, hasSingl
 	let label;
 	if ( hasSingleBlockType ) {
 		// translators: %s: the name of the block when there is only one
-		label = sprintf( _x( 'Add %s', 'directly add the only allowed block' ), blockTitle );
+		label = sprintf( _x( 'Add %s', 'Directly add the only allowed block' ), blockTitle );
 	} else {
 		label = _x( 'Add block', 'Generic label for block inserter button' );
 	}
