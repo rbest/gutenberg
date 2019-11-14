@@ -52,8 +52,14 @@ class Inserter extends Component {
 	}
 
 	onToggle( isOpen ) {
-		const { onToggle } = this.props;
+		const { onToggle, selectParentBlock } = this.props;
 
+		// We need this because we prevent focus both at toggle level
+		// and at the input level in the content so the block does never
+		// get focus so it doesn't get selected.
+		if ( isOpen ) {
+			selectParentBlock();
+		}
 		// Surface toggle callback to parent component
 		if ( onToggle ) {
 			onToggle( isOpen );
@@ -223,6 +229,13 @@ export default compose( [
 					const message = sprintf( __( '%s block added' ), allowedBlockType.title );
 					speak( message );
 				}
+			},
+			selectParentBlock() {
+				const { rootClientId } = ownProps;
+				const {
+					selectBlock,
+				} = dispatch( 'core/block-editor' );
+				selectBlock( rootClientId );
 			},
 		};
 	} ),
