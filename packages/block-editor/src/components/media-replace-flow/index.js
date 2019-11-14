@@ -155,11 +155,7 @@ const MediaReplaceFlow = (
 		editMediaButtonRef.current.focus();
 	};
 
-	const onClickOutside = () => {
-		return ( ) => {
-			setShowMediaReplaceOptions( false );
-		};
-	};
+	const onClickOutside = () => ( setShowMediaReplaceOptions( false ) );
 
 	const editMediaButton = (
 		<MediaUploadCheck>
@@ -169,10 +165,10 @@ const MediaReplaceFlow = (
 				allowedTypes={ allowedTypes }
 				render={ ( { open } ) => (
 					<>
-						<Toolbar className={ 'mediaflow-replace components-dropdown-menu components-toolbar' }>
+						<Toolbar className={ 'mediaflow-replace components-dropdown-menu' }>
 							<Button
 								ref={ editMediaButtonRef }
-								className={ 'components-button components-icon-button components-dropdown-menu__toggle' }
+								className={ 'components-icon-button components-dropdown-menu__toggle' }
 								onClick={ () => {
 									setShowMediaReplaceOptions( ! showMediaReplaceOptions );
 								} }
@@ -182,7 +178,7 @@ const MediaReplaceFlow = (
 							</Button>
 							{ showMediaReplaceOptions &&
 								<Popover
-									onClickOutside={ onClickOutside() }
+									onClickOutside={ onClickOutside }
 									onClose={ onClose }
 								>
 									<>
