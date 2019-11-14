@@ -21,7 +21,7 @@ import {
 	BACKSPACE,
 	ENTER,
 } from '@wordpress/keycodes';
-import { withSelect } from '@wordpress/data';
+import { useSelect } from '@wordpress/data';
 import { compose } from '@wordpress/compose';
 
 /**
@@ -34,7 +34,6 @@ import LinkViewer from '../url-popover/link-viewer';
 
 const MediaReplaceFlow = (
 	{
-		mediaUpload,
 		mediaURL,
 		allowedTypes,
 		onSelect,
@@ -48,6 +47,13 @@ const MediaReplaceFlow = (
 	const [ showEditURLInput, setShowEditURLInput ] = useState( false );
 	const [ mediaURLValue, setMediaURLValue ] = useState( mediaURL );
 	const [ showMediaReplaceOptions, setShowMediaReplaceOptions ] = useState( false );
+	const { mediaUpload } = useSelect( ( select ) => {
+		const { getSettings } = select( 'core/block-editor' );
+
+		return {
+			mediaUpload: getSettings().mediaUpload,
+		};
+	}, [] );
 	const editMediaButtonRef = createRef();
 
 	const stopPropagation = ( event ) => {
@@ -210,18 +216,9 @@ const MediaReplaceFlow = (
 	);
 };
 
-const applyWithSelect = withSelect( ( select ) => {
-	const { getSettings } = select( 'core/block-editor' );
-
-	return {
-		mediaUpload: getSettings().mediaUpload,
-	};
-} );
-
 /**
  * @see https://github.com/WordPress/gutenberg/blob/master/packages/block-editor/src/components/media-placeholder/README.md
  */
 export default compose(
-	applyWithSelect,
 	withNotices,
 )( MediaReplaceFlow );
