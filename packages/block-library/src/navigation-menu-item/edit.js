@@ -161,13 +161,6 @@ function NavigationMenuItemEdit( {
 				<PanelBody
 					title={ __( 'Menu Settings' ) }
 				>
-					<ToggleControl
-						checked={ attributes.opensInNewTab }
-						onChange={ ( newTab ) => {
-							setAttributes( { opensInNewTab: newTab } );
-						} }
-						label={ __( 'Open in new tab' ) }
-					/>
 					<TextareaControl
 						value={ attributes.description || '' }
 						onChange={ ( description ) => {
@@ -235,7 +228,7 @@ function NavigationMenuItemEdit( {
 							currentSettings={ [
 								{
 									id: 'opensInNewTab',
-									title: __( 'Open in New Tab' ),
+									title: __( 'Open in new tab' ),
 									checked: opensInNewTab,
 								},
 							] }
